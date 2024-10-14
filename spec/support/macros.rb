@@ -13,41 +13,6 @@ def execute(query, variables: {}, key: nil)
   end
 end
 
-def login(user)
-  allow_any_instance_of(Helpers::RecaptchaVerificationHelper) # rubocop:disable RSpec/AnyInstance
-    .to receive(:run_recaptcha_verification).and_return(true)
-  execute(login_query({ email: user.email, password: user.password }))
-end
-
-def login_query(args = {})
-  recaptcha_attributes = <<-RECAPTCHA_ATTRIBUTES
-      recaptchaAttributes: { token: "#{args[:recaptcha_token]}" }
-  RECAPTCHA_ATTRIBUTES
-
-  remember_me_attributes = <<-REMEMBERE_ME_ATTRIBUTES
-    rememberMe: #{args[:remember_me]}
-  REMEMBERE_ME_ATTRIBUTES
-
-
-  <<-GRAPHQL
-        mutation {
-          userLogIn(
-            input: {
-              attributes: {
-                email: "#{args[:email]}"
-                password: "#{args[:password]}"
-                #{recaptcha_attributes if args[:recaptcha_token]}
-                #{remember_me_attributes if args[:remember_me]}
-              }
-            }
-          ) {
-            ... on User { email }
-            ... on Error { messages }
-          }
-        }
-  GRAPHQL
-end
-
 def query_string(params)
   return if params.blank?
 

@@ -48,5 +48,6 @@ group :test do
 end
 
 gem 'ostruct'
+gem 'graphql'
 
 
