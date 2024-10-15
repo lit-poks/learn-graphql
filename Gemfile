@@ -41,6 +41,7 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 7.0.0'
   gem 'recursive-open-struct'
+  gem 'factory_bot_rails'
 end
 
 group :test do
