@@ -48,3 +48,6 @@ mutation createPost($input: CreatePostInput!) {
 
 ## Step 4 (branch step4)
 - implement posts query
+```graphql
+query { posts { id title description} }
+```
