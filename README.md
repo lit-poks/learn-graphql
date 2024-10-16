@@ -46,5 +46,5 @@ mutation createPost($input: CreatePostInput!) {
       }
 ```
 
-## Step 4 (branch step3)
+## Step 4 (branch step4)
 - implement posts query
