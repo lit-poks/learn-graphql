@@ -19,14 +19,14 @@
 - Create Comments Scaffold
 - Setup Factory
 - Create Mutation and Test
-  - make field
-  - create mutation class
-  - create attributes
-  - create return type (use and show generator)
-  - create resolver and test
-  - Try to explain fragments while writing query
-  - Ask everyone to create mutation for comment
-  - implement together fetching comments from post
+    - make field
+    - create mutation class
+    - create attributes
+    - create return type (use and show generator)
+    - create resolver and test
+    - Try to explain fragments while writing query
+    - Ask everyone to create mutation for comment
+    - implement together fetching comments from post
 
 ```graphql
         mutation {
@@ -46,5 +46,8 @@ mutation createPost($input: CreatePostInput!) {
       }
 ```
 
-## Step 4 (branch step3)
+## Step 4 (branch step4)
 - implement posts query
+```graphql
+query { posts { id title description} }
+```
